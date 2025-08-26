@@ -1,0 +1,17 @@
+[project]
+name = "pi3-splatting"
+version = "0.1.0"
+dependencies = [
+  "Pi3",  # logical name of the submodule package
+  "git+https://github.com/nerfstudio-project/gsplat.git"
+  "torch",
+  "numpy",
+]
+
+[tool.uv.workspace]
+# uv will treat these as workspace members (each with its own pyproject)
+members = ["submodules/Pi3"]
+
+[tool.uv.sources]
+# tell uv that these deps come from the workspace (editable installs by default)
+Pi3 = { workspace = true }
